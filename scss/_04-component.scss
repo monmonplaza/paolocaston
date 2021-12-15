@@ -1,0 +1,46 @@
+.header {
+  padding: 1rem 0;
+  &__wrapper {
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba($dark, 0.1);
+    padding: 1rem 0;
+  }
+  &__branding {
+    a {
+      font-size: 3rem;
+    }
+  }
+
+  &__nav {
+    li {
+      margin: 0 1rem;
+    }
+    &__icons {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.arrow {
+  font-size: 5rem;
+  transform: rotate(45deg);
+}
+
+.loadmore {
+  width: 24rem;
+  height: 24rem;
+  border: 1px solid $dark;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem auto;
+  a {
+    text-transform: uppercase;
+    display: block;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: bold;
+  }
+}

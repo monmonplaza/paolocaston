@@ -1,0 +1,20 @@
+@import "01-variable";
+@import "02-reset";
+@import "03-mixins";
+@import "04-component";
+@import "05-utilities";
+@import "06-base";
+@import "home";
+
+@media screen and (max-width: $break-sm) {
+  body {
+    display: none;
+  }
+}
+h1 {
+  @include transition;
+}
+
+h1:hover {
+  color: $highlight;
+}
