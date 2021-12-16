@@ -5,16 +5,3 @@
 @import "05-utilities";
 @import "06-base";
 @import "home";
-
-@media screen and (max-width: $break-sm) {
-  body {
-    display: none;
-  }
-}
-h1 {
-  @include transition;
-}
-
-h1:hover {
-  color: $highlight;
-}

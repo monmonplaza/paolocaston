@@ -1,4 +1,4 @@
-@mixin transition($sec: 0.5s, $easing: ease-in-out) {
+@mixin transition($sec: 0.3s, $easing: ease-in-out) {
   transition-duration: $sec;
   transition-timing-function: $easing;
 }

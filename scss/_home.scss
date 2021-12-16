@@ -73,7 +73,7 @@
 
       a {
         font-size: clamp(2.5rem, 5vw, 6rem);
-        color: #bababa;
+        color: $lowOpacity;
         position: relative;
         @include transition;
         &:hover {
@@ -86,13 +86,13 @@
           height: 70%;
           width: 1px;
           transform: rotate(20deg);
-          background-color: #bababa;
+          background-color: $lowOpacity;
           bottom: 0.5rem;
           right: -2rem;
         }
 
         &:hover::after {
-          color: #bababa;
+          color: $lowOpacity;
         }
         sup {
           font-size: 2rem;
@@ -114,9 +114,6 @@
   &__header {
     justify-content: space-between;
     align-items: center;
-    h2 {
-      width: 3rem;
-    }
 
     ul {
       li {
@@ -124,6 +121,10 @@
         a {
           font-weight: bold;
           font-size: 1.2rem;
+          @include transition;
+          &:hover {
+            color: $highlight;
+          }
         }
       }
     }
@@ -148,7 +149,7 @@
       li {
         margin-right: 1rem;
         a {
-          color: #bababa;
+          color: $lowOpacity;
           font-size: 1.2rem;
         }
       }
@@ -158,6 +159,103 @@
   &__card.card--long {
     img {
       height: 70rem;
+    }
+  }
+}
+
+.client {
+  &__wrapper {
+    padding: 6rem 0;
+    border-top: 1px solid rgba($dark, 0.1);
+    border-bottom: 1px solid rgba($dark, 0.1);
+  }
+  &__list {
+    flex-wrap: wrap;
+
+    gap: 2rem;
+  }
+  &__listitem {
+    margin: 2rem 0;
+    img {
+      width: 20rem;
+      height: 10rem;
+      object-fit: cover;
+      filter: saturate(0%);
+    }
+  }
+}
+
+.team {
+  &__wrapper {
+    padding: 6rem 0;
+    border-bottom: 1px solid rgba($dark, 0.1);
+  }
+  &__list {
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+  }
+  &__listitem {
+    width: 20rem;
+    height: 20rem;
+    margin-right: 9rem;
+    img {
+      border: 1px solid $dark;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+      color: $lowOpacity;
+    }
+
+    a {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__listitem.team--link {
+    padding: 2rem;
+    border: 1px solid $dark;
+    flex-direction: column;
+    @include transition;
+    a {
+      @include transition;
+    }
+
+    &:hover {
+      color: $light;
+      background-color: $dark;
+    }
+
+    &:hover a {
+      color: $light;
+    }
+  }
+}
+
+.chat {
+  padding: 10rem 0;
+  &__wrapper {
+    align-items: center;
+    a {
+      @include transition;
+      &:hover {
+        color: $highlight;
+      }
+    }
+    h2 {
+      font-size: clamp(3rem, 5vw, 6rem);
+      text-transform: uppercase;
+      margin-right: 5rem;
+    }
+
+    i {
+      font-size: 7rem;
     }
   }
 }

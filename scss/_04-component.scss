@@ -15,6 +15,13 @@
   &__nav {
     li {
       margin: 0 1rem;
+      a {
+        font-weight: bold;
+        @include transition;
+        &:hover {
+          color: $highlight;
+        }
+      }
     }
     &__icons {
       margin-left: 2rem;
@@ -36,11 +43,83 @@
   align-items: center;
   justify-content: center;
   margin: 5rem auto;
+  cursor: pointer;
+  @include transition;
   a {
     text-transform: uppercase;
     display: block;
     font-size: 2.5rem;
     line-height: 1.2;
     font-weight: bold;
+    @include transition;
+  }
+  &:hover {
+    color: $light;
+    background-color: $dark;
+  }
+  &:hover a {
+    color: $light;
+  }
+}
+
+.block__header {
+  max-width: 10rem;
+  line-height: 1.2;
+}
+
+.footer {
+  &__wrapper {
+    padding: 6rem 0;
+    border-top: 1px solid rgba($dark, 0.1);
+    grid-template-columns: 30rem 24rem 30rem 1fr;
+  }
+
+  ul {
+    li {
+      margin-bottom: 1rem;
+      a {
+        font-size: 1.4rem;
+        @include transition;
+        &:hover {
+          color: $highlight;
+        }
+      }
+    }
+  }
+
+  .emailme {
+    a {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: bold;
+      @include transition;
+      &:hover {
+        color: $highlight;
+      }
+    }
+
+    p {
+      color: $lowOpacity;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.copyright {
+  &__wrapper {
+    padding: 2rem 0;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  ul {
+    li {
+      margin-left: 2rem;
+      a {
+        font-size: 2rem;
+      }
+    }
   }
 }
