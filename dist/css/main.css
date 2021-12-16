@@ -417,6 +417,7 @@ ul {
      object-fit: cover;
   -webkit-filter: saturate(0%);
           filter: saturate(0%);
+  opacity: 0.5;
 }
 
 .team__wrapper {
