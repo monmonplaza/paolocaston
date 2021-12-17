@@ -180,7 +180,9 @@
   }
   &__card {
     margin-bottom: 7rem;
-
+    @include mediaQuery {
+      width: 100%;
+    }
     img {
       width: 53rem;
       height: 55rem;
