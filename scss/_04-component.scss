@@ -1,20 +1,59 @@
 .header {
-  padding: 1rem 0;
   &__wrapper {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba($dark, 0.1);
     padding: 1rem 0;
+    position: relative;
   }
   &__branding {
     a {
-      font-size: 3rem;
+      img {
+        width: 6rem;
+      }
     }
+  }
+  &__nav.show ul {
+    transform: translateX(0%) !important;
   }
 
   &__nav {
+    align-items: center;
+    ul:first-child {
+      @include mediaQuery {
+        transition: 0.5s ease;
+        z-index: 999;
+        top: 10rem;
+        right: 0%;
+        transform: translateX(100%);
+        width: 100%;
+        position: fixed;
+        height: 100vh;
+        flex-direction: column;
+        align-items: flex-end;
+        background-color: $light;
+        margin-top: 3rem;
+
+        li {
+          margin-bottom: 3rem;
+          margin-right: 2.5rem;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    li#navToggle {
+      display: none;
+      @include mediaQuery {
+        display: block;
+      }
+      a {
+        font-size: 3rem;
+      }
+    }
     li {
       margin: 0 1rem;
+
       a {
         font-weight: bold;
         @include transition;
@@ -25,6 +64,11 @@
     }
     &__icons {
       margin-left: 2rem;
+      li {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+      }
     }
   }
 }
@@ -72,9 +116,15 @@
     padding: 6rem 0;
     border-top: 1px solid rgba($dark, 0.1);
     grid-template-columns: 30rem 24rem 30rem 1fr;
+    @include mediaQuery {
+      grid-template-columns: 1fr;
+    }
   }
 
   ul {
+    @include mediaQuery {
+      margin-top: 2rem;
+    }
     li {
       margin-bottom: 1rem;
       a {
@@ -88,6 +138,9 @@
   }
 
   .emailme {
+    @include mediaQuery {
+      margin-top: 2rem;
+    }
     a {
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: bold;
@@ -109,8 +162,14 @@
     padding: 2rem 0;
     justify-content: space-between;
     align-items: center;
+    @include mediaQuery {
+      flex-direction: column-reverse;
+    }
     p {
       font-size: 1.4rem;
+      @include mediaQuery {
+        margin-top: 2rem;
+      }
     }
   }
 

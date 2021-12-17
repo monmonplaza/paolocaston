@@ -2,3 +2,9 @@
   transition-duration: $sec;
   transition-timing-function: $easing;
 }
+
+@mixin mediaQuery($width: $break-sm) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

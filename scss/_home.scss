@@ -3,6 +3,11 @@
 
   &__wrapper {
     grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    @include mediaQuery {
+      grid-template-columns: 1fr;
+      grid-gap: 2rem;
+    }
   }
 
   &__content {
@@ -51,6 +56,9 @@
       transform: rotate(-5deg);
     }
   }
+  i {
+    transform: translateY(3rem) rotate(45deg);
+  }
 }
 
 .services {
@@ -68,8 +76,10 @@
     line-height: 1.4;
     li {
       display: inline-block;
-
       margin-right: 5.5rem;
+      @include mediaQuery {
+        margin-bottom: 1rem;
+      }
 
       a {
         font-size: clamp(2.5rem, 5vw, 6rem);
@@ -98,6 +108,9 @@
           font-size: 2rem;
           display: inline-block;
           transform: translateY(-1rem);
+          @include mediaQuery {
+            font-size: 1.2rem;
+          }
         }
       }
     }
@@ -106,16 +119,42 @@
     li:last-child a::after {
       display: none;
     }
+    li a::after {
+      @include mediaQuery {
+        display: none;
+      }
+    }
   }
 }
 
 .project {
   padding: 6rem 0;
+
   &__header {
     justify-content: space-between;
     align-items: center;
-
+    @include mediaQuery {
+      align-items: flex-start;
+      flex-direction: column;
+    }
     ul {
+      @include mediaQuery {
+        width: 90vw;
+        overflow-x: scroll;
+        margin-top: 3rem;
+        padding: 2rem 0;
+        &::-webkit-scrollbar {
+          height: 0.5rem;
+          background-color: lighten($dark, 60);
+        }
+        &::-webkit-scrollbar-thumb {
+          background: lighten($dark, 30);
+          border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: lighten($dark, 30);
+        }
+      }
       li {
         margin: 0 1.5rem;
         a {
@@ -124,6 +163,10 @@
           @include transition;
           &:hover {
             color: $highlight;
+          }
+
+          @include mediaQuery {
+            white-space: nowrap;
           }
         }
       }
@@ -137,11 +180,16 @@
   }
   &__card {
     margin-bottom: 7rem;
+
     img {
       width: 53rem;
       height: 55rem;
       object-fit: cover;
       display: block;
+      @include mediaQuery {
+        width: 100%;
+        height: 35rem;
+      }
     }
 
     ul {
@@ -151,7 +199,17 @@
         a {
           color: $lowOpacity;
           font-size: 1.2rem;
+          &:hover {
+            color: $highlight;
+          }
         }
+      }
+    }
+
+    h2 a {
+      @include transition;
+      &:hover {
+        color: $highlight;
       }
     }
   }
@@ -159,6 +217,10 @@
   &__card.card--long {
     img {
       height: 70rem;
+      @include mediaQuery {
+        width: 100%;
+        height: 35rem;
+      }
     }
   }
 }
@@ -173,6 +235,9 @@
     flex-wrap: wrap;
 
     gap: 2rem;
+    @include mediaQuery {
+      justify-content: space-around;
+    }
   }
   &__listitem {
     margin: 2rem 0;
@@ -182,7 +247,16 @@
       object-fit: cover;
       filter: saturate(0%);
       opacity: 0.5;
+      transition: 0.5s ease;
+      @include mediaQuery {
+        width: 10rem;
+      }
     }
+  }
+
+  &__listitem:hover img {
+    filter: saturate(100%);
+    opacity: 1;
   }
 }
 
@@ -194,11 +268,24 @@
   &__list {
     margin-top: 2rem;
     margin-bottom: 6rem;
+    @include mediaQuery {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   &__listitem {
     width: 20rem;
     height: 20rem;
     margin-right: 9rem;
+    @include mediaQuery {
+      margin-right: 0rem;
+      margin-bottom: 9rem;
+    }
+    &:last-child {
+      @include mediaQuery {
+        margin-bottom: 0;
+      }
+    }
     img {
       border: 1px solid $dark;
       display: block;
@@ -223,6 +310,7 @@
     padding: 2rem;
     border: 1px solid $dark;
     flex-direction: column;
+    justify-content: center;
     @include transition;
     a {
       @include transition;
